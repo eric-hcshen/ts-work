@@ -24,13 +24,6 @@ const hero_1 = require("./api/hero");
  */
 class Server {
     /**
-     * Bootstrap the application.
-     * @static
-     */
-    static bootstrap() {
-        return new Server();
-    }
-    /**
      * @constructor
      */
     constructor() {
@@ -40,6 +33,13 @@ class Server {
         this.config();
         //add api
         this.api();
+    }
+    /**
+     * Bootstrap the application.
+     * @static
+     */
+    static bootstrap() {
+        return new Server();
     }
     /**
      * Create REST API routes

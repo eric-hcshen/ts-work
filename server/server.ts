@@ -6,6 +6,7 @@ import errorHandler = require("errorhandler");
 import mongoose = require("mongoose");
 import cors from "cors";
 import { HerosApi } from "./api/hero";
+import { UserAPI } from "./api/user";
 
 /**
  * The server.
@@ -68,6 +69,7 @@ export class Server {
 
     // create API routes
     HerosApi.create(router);
+    UserAPI.create(router);
 
     // wire up the REST API
     this.app.use("/api", router);
