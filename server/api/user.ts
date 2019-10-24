@@ -4,7 +4,13 @@ import  petController from "../controller/pet.controller"
 
 export class UserAPI {
     public static create(route: Router) {
-        route.post('/api/user', (req: Request, res: Response, next: NextFunction) => {
+        route.get('/user', (req: Request, res: Response, next: NextFunction) => {
+            //console.log('Request:' + res);
+            res.send('ok');
+            next();
+            return;
+        });
+        route.post('/user', (req: Request, res: Response, next: NextFunction) => {
             new UserAPI().create(req, res, next);
         });
     }
@@ -14,12 +20,12 @@ export class UserAPI {
             lastName: req.body.lastName,
             email: req.body.email
           });
+          console.log('in create');
           const pet = await petController.CreatePet({
             owner: user._id,
             name: req.body.petName
           });
-      
-          return res.send({ user, pet });
           next();
+          return res.send({ user, pet });
     }
 }

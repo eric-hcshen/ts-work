@@ -71,4 +71,7 @@ var askMom = function () {
   askMom()
   console.log('Xxxxx')
   */
-  
+ const tweetLength = (message = 'A default tweet') => {
+  return message.length;
+};
+console.log(tweetLength('test'));

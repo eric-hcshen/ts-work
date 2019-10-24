@@ -2,10 +2,10 @@
   "name": "ts-work",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./bin/www.js",
   "scripts": {
     "start": "node ./dist/app.js",
-    "dev": "nodemon ./src/app.ts",
+    "dev": "ts-node ./bin/www.js",
     "build": "tsc -p ."
   },
   "keywords": [],
