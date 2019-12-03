@@ -25,6 +25,16 @@ let inf : {(x: number, y: number):number};
 function fun(x: number, y: number):number {
     return x + y;
 }
+
+let o: any = {};
+
+class cls {
+    zz: {(x: number, y: number):number} = fun;
+}
+
+const testObj = new cls();
+testObj.zz = fun;
+
 let zz: {(x: number, y: number):number} = fun;
 
 interface face<T> {

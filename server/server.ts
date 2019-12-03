@@ -7,6 +7,7 @@ import mongoose = require("mongoose");
 import cors from "cors";
 import { HerosApi } from "./api/hero";
 import { UserAPI } from "./api/user";
+import {router as proc} from "./api/proc";
 
 /**
  * The server.
@@ -70,7 +71,7 @@ export class Server {
     // create API routes
     HerosApi.create(router);
     UserAPI.create(router);
-
+    this.app.use('/eric', proc);
     // wire up the REST API
     this.app.use("/api", router);
 
@@ -94,13 +95,7 @@ export class Server {
     this.app.use(bodyParser.urlencoded({
       extended: true
     }));
-
-    // connect to mongoose
-    mongoose.connect("mongodb://localhost:27017/mean-material-reactive");
-    mongoose.connection.on("error", error => {
-      console.error(error);
-    });
-
+    /*
     //catch 404 and forward to error handler
     this.app.use(function(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
         err.status = 404;
@@ -109,5 +104,20 @@ export class Server {
 
     //error handling
     this.app.use(errorHandler());
+    */
+    // connect to mongoose
+    mongoose.connect("mongodb://localhost:27017/mean-material-reactive");
+    mongoose.connection.on("error", error => {
+      console.error(error);
+    });
+  }
+  public run() {
+    this.app.listen(80);
   }
 }
+
+let srv = new Server();
+srv.api();
+srv.config();
+srv.run();
+console.log('Running..');
