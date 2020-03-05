@@ -1,5 +1,5 @@
 //https://www.youtube.com/watch?v=NhYMlbKgQzU
-//es6 features
+//es6 features test in browser
 function sayHello(name) {
     return 'Hello ' + name;
 }
@@ -74,6 +74,12 @@ var myPromise = new Promise((resolve, reject) => {
 myPromise
 .then((data) => console.log(data.target.response))
 .catch((err) => console.log(err));
+
+//post case
+var xhr = new XMLHttpRequest();
+xhr.open('post', 'http://localhost:3000/masters', true);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.send("{\"master_name\":\"xxx\",\"col1\":\"111\",\"col2\":\"222\",\"col3\":\"333\"}");
  
 
 

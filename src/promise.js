@@ -1,4 +1,4 @@
-
+const fetch = require('node-fetch');
 const posts = [
     {title: 'post 1', post: 'this is post1'},
     {title: 'post 2', post: 'this is post2'}
